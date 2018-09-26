@@ -4,6 +4,7 @@ import com.alibaba.datax.common.base.BaseObject;
 import com.alibaba.datax.common.util.Configuration;
 
 public abstract class AbstractPlugin extends BaseObject implements Pluginable {
+	
 	//作业的config
     private Configuration pluginJobConf;
 

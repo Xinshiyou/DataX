@@ -51,6 +51,7 @@ public abstract class TransformerExchanger {
 
 
     public Record doTransformer(Record record) {
+    	
         if (transformerExecs == null || transformerExecs.size() == 0) {
             return record;
         }

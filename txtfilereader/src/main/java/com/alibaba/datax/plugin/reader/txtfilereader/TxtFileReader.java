@@ -33,6 +33,7 @@ import java.util.regex.Pattern;
  * Created by haiwei.luo on 14-9-20.
  */
 public class TxtFileReader extends Reader {
+	
 	public static class Job extends Reader.Job {
 		private static final Logger LOG = LoggerFactory.getLogger(Job.class);
 

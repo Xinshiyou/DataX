@@ -263,9 +263,7 @@ public class TxtFileWriter extends Writer {
         private static final Logger LOG = LoggerFactory.getLogger(Task.class);
 
         private Configuration writerSliceConfig;
-
         private String path;
-
         private String fileName;
 
         @Override
@@ -278,7 +276,6 @@ public class TxtFileWriter extends Writer {
 
         @Override
         public void prepare() {
-
         }
 
         @Override

@@ -22,6 +22,7 @@ import java.util.Map;
  * reader和writer在执行时又可能出现Job和Task两种运行时（加载的类不同）
  */
 public class LoadUtil {
+	
     private static final String pluginTypeNameFormat = "plugin.%s.%s";
 
     private LoadUtil() {
@@ -68,6 +69,7 @@ public class LoadUtil {
 
     private static Configuration getPluginConf(PluginType pluginType,
                                                String pluginName) {
+    	
         Configuration pluginConf = pluginRegisterCenter
                 .getConfiguration(generatePluginKey(pluginType, pluginName));
 
@@ -115,6 +117,7 @@ public class LoadUtil {
      */
     public static AbstractTaskPlugin loadTaskPlugin(PluginType pluginType,
                                                     String pluginName) {
+    	
         Class<? extends AbstractPlugin> clazz = LoadUtil.loadPluginClass(
                 pluginType, pluginName, ContainerType.Task);
 
@@ -122,7 +125,9 @@ public class LoadUtil {
             AbstractTaskPlugin taskPlugin = (AbstractTaskPlugin) clazz
                     .newInstance();
             taskPlugin.setPluginConf(getPluginConf(pluginType, pluginName));
+            
             return taskPlugin;
+            
         } catch (Exception e) {
             throw DataXException.asDataXException(FrameworkErrorCode.RUNTIME_ERROR,
                     String.format("DataX不能找plugin[%s]的Task配置.",
@@ -138,6 +143,7 @@ public class LoadUtil {
      * @return
      */
     public static AbstractRunner loadPluginRunner(PluginType pluginType, String pluginName) {
+    	
         AbstractTaskPlugin taskPlugin = LoadUtil.loadTaskPlugin(pluginType,
                 pluginName);
 

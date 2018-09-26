@@ -50,7 +50,6 @@ public class DFSUtil {
     private String kerberosKeytabFilePath;
     private String kerberosPrincipal;
 
-
     private static final int DIRECTORY_SIZE_GUESS = 16 * 1024;
 
     public static final String HDFS_DEFAULTFS_KEY = "fs.defaultFS";

@@ -27,7 +27,8 @@ import java.util.List;
 public class CommonRdbmsWriter {
 
     public static class Job {
-        private DataBaseType dataBaseType;
+
+    	private DataBaseType dataBaseType;
 
         private static final Logger LOG = LoggerFactory
                 .getLogger(Job.class);

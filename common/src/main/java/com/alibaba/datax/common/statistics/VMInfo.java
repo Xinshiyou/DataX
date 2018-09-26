@@ -16,6 +16,7 @@ import java.util.Map;
  * Created by liqiang on 15/11/12.
  */
 public class VMInfo {
+	
     private static final Logger LOG = LoggerFactory.getLogger(VMInfo.class);
     static final long MB = 1024 * 1024;
     static final long GB = 1024 * 1024 * 1024;
@@ -26,6 +27,7 @@ public class VMInfo {
      * @return null or vmInfo. null is something error, job no care it.
      */
     public static VMInfo getVmInfo() {
+    	
         if (vmInfo == null) {
             synchronized (lock) {
                 if (vmInfo == null) {
@@ -36,8 +38,8 @@ public class VMInfo {
                     }
                 }
             }
-
         }
+        
         return vmInfo;
     }
 
@@ -46,6 +48,7 @@ public class VMInfo {
     private final RuntimeMXBean runtimeMXBean;
     private final List<GarbageCollectorMXBean> garbageCollectorMXBeanList;
     private final List<MemoryPoolMXBean> memoryPoolMXBeanList;
+    
     /**
      * 静态信息
      */
@@ -64,13 +67,11 @@ public class VMInfo {
     private final ProcessCpuStatus processCpuStatus = new ProcessCpuStatus();
     private final ProcessGCStatus processGCStatus = new ProcessGCStatus();
     private final ProcessMemoryStatus processMomoryStatus = new ProcessMemoryStatus();
-    //ms
     private long lastUpTime = 0;
-    //nano
     private long lastProcessCpuTime = 0;
 
-
     private VMInfo() {
+    	
         //初始化静态信息
         osMXBean = java.lang.management.ManagementFactory.getOperatingSystemMXBean();
         runtimeMXBean = java.lang.management.ManagementFactory.getRuntimeMXBean();
@@ -207,6 +208,7 @@ public class VMInfo {
     }
 
     private class PhyOSStatus {
+    	
         long totalPhysicalMemory = -1;
         long freePhysicalMemory = -1;
         long maxFileDescriptorCount = -1;
@@ -222,6 +224,7 @@ public class VMInfo {
     }
 
     private class ProcessCpuStatus {
+    	
         // 百分比的值 比如30.0 表示30.0%
         float maxDeltaCpu = -1;
         float minDeltaCpu = -1;
@@ -271,6 +274,7 @@ public class VMInfo {
     }
 
     private class ProcessGCStatus {
+    	
         final Map<String, GCStatus> gcStatusMap = new HashMap<String, GCStatus>();
 
         public String toString() {
@@ -347,6 +351,7 @@ public class VMInfo {
     }
 
     private class GCStatus {
+    	
         String name;
         long maxDeltaGCCount = -1;
         long minDeltaGCCount = -1;

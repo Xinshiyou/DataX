@@ -3,6 +3,7 @@ package com.alibaba.datax.common.plugin;
 import com.alibaba.datax.common.util.Configuration;
 
 public interface Pluginable {
+	
 	String getDeveloper();
 
     String getDescription();

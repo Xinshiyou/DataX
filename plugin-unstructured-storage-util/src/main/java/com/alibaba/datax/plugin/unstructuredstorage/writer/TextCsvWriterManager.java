@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import com.csvreader.CsvWriter;
 
 public class TextCsvWriterManager {
+	
     public static UnstructuredWriter produceUnstructuredWriter(
             String fileFormat, char fieldDelimiter, Writer writer) {
         // warn: false means plain text(old way), true means strict csv format
@@ -21,9 +22,11 @@ public class TextCsvWriterManager {
             return new CsvWriterImpl(writer, fieldDelimiter);
         }
     }
+    
 }
 
 class CsvWriterImpl implements UnstructuredWriter {
+	
     private static final Logger LOG = LoggerFactory
             .getLogger(CsvWriterImpl.class);
     // csv 严格符合csv语法, 有标准的转义等处理
@@ -61,6 +64,7 @@ class CsvWriterImpl implements UnstructuredWriter {
 }
 
 class TextWriterImpl implements UnstructuredWriter {
+	
     private static final Logger LOG = LoggerFactory
             .getLogger(TextWriterImpl.class);
     // text StringUtils的join方式, 简单的字符串拼接

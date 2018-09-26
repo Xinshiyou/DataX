@@ -13,9 +13,7 @@ import java.util.Date;
 public abstract class Column {
 
 	private Type type;
-
 	private Object rawData;
-
 	private int byteSize;
 
 	public Column(final Object object, final Type type, int byteSize) {

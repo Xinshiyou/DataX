@@ -13,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 public class DirtyRecord implements Record {
+	
 	private List<Column> columns = new ArrayList<Column>();
 
 	public static DirtyRecord asDirtyRecord(final Record record) {

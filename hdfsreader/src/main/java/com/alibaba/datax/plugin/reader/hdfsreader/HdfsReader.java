@@ -197,6 +197,7 @@ public class HdfsReader extends Reader {
 
 
         private <T> List<List<T>> splitSourceFiles(final List<T> sourceList, int adviceNumber) {
+        	
             List<List<T>> splitedList = new ArrayList<List<T>>();
             int averageLength = sourceList.size() / adviceNumber;
             averageLength = averageLength == 0 ? 1 : averageLength;

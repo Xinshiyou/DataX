@@ -938,6 +938,7 @@ public class Configuration {
 	}
 
 	private Object findObject(final String path) {
+		
 		boolean isRootQuery = StringUtils.isBlank(path);
 		if (isRootQuery) {
 			return this.root;

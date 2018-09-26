@@ -7,6 +7,7 @@ import com.alibaba.datax.common.spi.ErrorCode;
  * Created by judy.lt on 2015/6/5.
  */
 public class RdbmsException extends DataXException{
+	
     public RdbmsException(ErrorCode errorCode, String message){
         super(errorCode,message);
     }

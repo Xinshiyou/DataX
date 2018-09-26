@@ -16,6 +16,7 @@ public class MysqlReader extends Reader {
     private static final DataBaseType DATABASE_TYPE = DataBaseType.MySql;
 
     public static class Job extends Reader.Job {
+    	
         private static final Logger LOG = LoggerFactory
                 .getLogger(Job.class);
 

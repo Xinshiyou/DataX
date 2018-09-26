@@ -174,6 +174,7 @@ public abstract class Channel {
     }
 
     private void statPush(long recordSize, long byteSize) {
+    	
         currentCommunication.increaseCounter(CommunicationTool.READ_SUCCEED_RECORDS,
                 recordSize);
         currentCommunication.increaseCounter(CommunicationTool.READ_SUCCEED_BYTES,

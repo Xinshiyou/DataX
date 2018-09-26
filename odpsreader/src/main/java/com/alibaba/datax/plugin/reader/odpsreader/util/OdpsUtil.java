@@ -192,7 +192,7 @@ public final class OdpsUtil {
                 continue;
             }
 
-            // if normal column, warn: in o d p s normal columns can not
+            // if normal column, warn: in odps normal columns can not
             // repeated in partitioning columns
             int index = OdpsUtil.indexOfIgnoreCase(allNormalColumns, column);
             if (0 <= index) {

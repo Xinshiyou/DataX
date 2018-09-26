@@ -25,8 +25,8 @@
             "channel": {
                 "class": "com.alibaba.datax.core.transport.channel.memory.MemoryChannel",
                 "speed": {
-                    "byte": -1,
-                    "record": -1
+                    "byte": 10485760,
+                    "record": 100000
                 },
                 "flowControlInterval": 20,
                 "capacity": 512,
@@ -39,7 +39,7 @@
         },
         "container": {
             "job": {
-                "reportInterval": 10000
+                "reportInterval": 2000
             },
             "taskGroup": {
                 "channel": 5

@@ -60,6 +60,7 @@ class StringCast {
 	static String encoding = "UTF-8";
 
 	static void init(final Configuration configuration) {
+		
 		StringCast.datetimeFormat = configuration.getString(
 				"common.column.datetimeFormat", StringCast.datetimeFormat);
 		StringCast.dateFormat = configuration.getString(

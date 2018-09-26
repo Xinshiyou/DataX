@@ -313,6 +313,7 @@ public class OdpsReader extends Reader {
 
         @Override
         public void startRead(RecordSender recordSender) {
+        	
             DownloadSession downloadSession = null;
             String partition = this.readerSliceConf.getString(Key.PARTITION);
 

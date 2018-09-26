@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.*;
 
 public final class JobAssignUtil {
+	
     private JobAssignUtil() {
     }
 
@@ -18,6 +19,7 @@ public final class JobAssignUtil {
      * TODO 具体文档举例说明
      */
     public static List<Configuration> assignFairly(Configuration configuration, int channelNumber, int channelsPerTaskGroup) {
+    	
         Validate.isTrue(configuration != null, "框架获得的 Job 不能为 null.");
 
         List<Configuration> contentConfig = configuration.getListConfiguration(CoreConstant.DATAX_JOB_CONTENT);
@@ -53,10 +55,12 @@ public final class JobAssignUtil {
 
         // 调整 每个 taskGroup 对应的 Channel 个数（属于优化范畴）
         adjustChannelNumPerTaskGroup(taskGroupConfig, channelNumber);
+        
         return taskGroupConfig;
     }
 
     private static void adjustChannelNumPerTaskGroup(List<Configuration> taskGroupConfig, int channelNumber) {
+    	
         int taskGroupNumber = taskGroupConfig.size();
         int avgChannelsPerTaskGroup = channelNumber / taskGroupNumber;
         int remainderChannelCount = channelNumber % taskGroupNumber;
@@ -71,6 +75,7 @@ public final class JobAssignUtil {
         for (int j = 0; j < taskGroupNumber - remainderChannelCount; j++) {
             taskGroupConfig.get(i + j).set(CoreConstant.DATAX_CORE_CONTAINER_TASKGROUP_CHANNEL, avgChannelsPerTaskGroup);
         }
+        
     }
 
     /**
@@ -114,7 +119,7 @@ public final class JobAssignUtil {
      * 需要实现的效果通过例子来说是：
      * <pre>
      * a 库上有表：0, 1, 2
-     * a 库上有表：3, 4
+     * b 库上有表：3, 4
      * c 库上有表：5, 6, 7
      *
      * 如果有 4个 taskGroup

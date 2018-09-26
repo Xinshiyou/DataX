@@ -13,6 +13,7 @@ import java.util.Map;
  * 这里主要是业务层面的处理
  */
 public final class CommunicationTool {
+	
     public static final String STAGE = "stage";
     public static final String BYTE_SPEED = "byteSpeed";
     public static final String RECORD_SPEED = "recordSpeed";
@@ -50,6 +51,7 @@ public final class CommunicationTool {
     public static final String TRANSFORMER_NAME_PREFIX = "usedTimeByTransformer_";
 
     public static Communication getReportCommunication(Communication now, Communication old, int totalStage) {
+    	
         Validate.isTrue(now != null && old != null,
                 "为汇报准备的新旧metric不能为null");
 

@@ -28,6 +28,7 @@ public final class ErrorRecordChecker {
     }
 
     public ErrorRecordChecker(Long rec, Double percentage) {
+    	
         recordLimit = rec;
         percentageLimit = percentage;
 

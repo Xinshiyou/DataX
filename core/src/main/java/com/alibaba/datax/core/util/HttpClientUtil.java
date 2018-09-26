@@ -21,7 +21,6 @@ import java.util.Properties;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ThreadPoolExecutor;
 
-
 public class HttpClientUtil {
 
     private static CredentialsProvider provider;
@@ -32,7 +31,6 @@ public class HttpClientUtil {
 
     //构建httpclient的时候一定要设置这两个参数。淘宝很多生产故障都由此引起
     private static int HTTP_TIMEOUT_INMILLIONSECONDS = 5000;
-
     private static final int POOL_SIZE = 20;
 
     private static ThreadPoolExecutor asyncExecutor = RetryUtil.createThreadPoolExecutor();

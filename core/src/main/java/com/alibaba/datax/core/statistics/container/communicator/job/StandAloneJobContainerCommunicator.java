@@ -15,8 +15,8 @@ import java.util.List;
 import java.util.Map;
 
 public class StandAloneJobContainerCommunicator extends AbstractContainerCommunicator {
-    private static final Logger LOG = LoggerFactory
-            .getLogger(StandAloneJobContainerCommunicator.class);
+	
+    private static final Logger LOG = LoggerFactory.getLogger(StandAloneJobContainerCommunicator.class);
 
     public StandAloneJobContainerCommunicator(Configuration configuration) {
         super(configuration);

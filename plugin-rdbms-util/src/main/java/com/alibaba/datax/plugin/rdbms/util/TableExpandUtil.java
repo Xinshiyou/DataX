@@ -71,6 +71,7 @@ public final class TableExpandUtil {
 
 	public static List<String> expandTableConf(DataBaseType dataBaseType,
 			List<String> tables) {
+		
 		List<String> parsedTables = new ArrayList<String>();
 		for (String table : tables) {
 			List<String> splittedTables = splitTables(dataBaseType, table);

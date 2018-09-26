@@ -4,6 +4,7 @@ package com.alibaba.datax.core.job.meta;
  * Created by liupeng on 15/12/21.
  */
 public enum ExecuteMode {
+	
     STANDALONE("standalone"), ;
 
     String value;

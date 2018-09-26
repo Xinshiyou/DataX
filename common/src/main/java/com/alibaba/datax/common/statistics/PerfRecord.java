@@ -10,8 +10,8 @@ import java.util.Date;
 /**
  * Created by liqiang on 15/8/23.
  */
-@SuppressWarnings("NullableProblems")
 public class PerfRecord implements Comparable<PerfRecord> {
+	
     private static Logger perf = LoggerFactory.getLogger(PerfRecord.class);
     private static String datetimeFormat = "yyyy-MM-dd HH:mm:ss";
 
@@ -38,6 +38,7 @@ public class PerfRecord implements Comparable<PerfRecord> {
          * SQL_QUERY: sql query阶段, 部分reader的个性统计
          */
         SQL_QUERY(100),
+        
         /**
          * 数据从sql全部读出来
          */
@@ -165,6 +166,7 @@ public class PerfRecord implements Comparable<PerfRecord> {
 
     @Override
     public boolean equals(Object o) {
+    	
         if (this == o) return true;
         if(!(o instanceof PerfRecord)){
             return false;
@@ -177,7 +179,9 @@ public class PerfRecord implements Comparable<PerfRecord> {
         if (this.taskId != dst.taskId) return false;
         if (phase != null ? !phase.equals(dst.phase) : dst.phase != null) return false;
         if (startTime != null ? !startTime.equals(dst.startTime) : dst.startTime != null) return false;
+        
         return true;
+        
     }
 
     public PerfRecord copy() {

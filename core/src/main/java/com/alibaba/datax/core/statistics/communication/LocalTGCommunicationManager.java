@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 public final class LocalTGCommunicationManager {
+	
     private static Map<Integer, Communication> taskGroupCommunicationMap =
             new ConcurrentHashMap<Integer, Communication>();
 

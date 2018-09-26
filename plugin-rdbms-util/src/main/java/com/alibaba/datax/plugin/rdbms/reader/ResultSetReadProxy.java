@@ -15,16 +15,14 @@ import java.sql.ResultSetMetaData;
 import java.sql.Types;
 
 public class ResultSetReadProxy {
-	private static final Logger LOG = LoggerFactory
-			.getLogger(ResultSetReadProxy.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ResultSetReadProxy.class);
 
 	private static final boolean IS_DEBUG = LOG.isDebugEnabled();
 	private static final byte[] EMPTY_CHAR_ARRAY = new byte[0];
 
-	//TODO
-	public static void transportOneRecord(RecordSender recordSender, ResultSet rs, 
-			ResultSetMetaData metaData, int columnNumber, String mandatoryEncoding, 
-			TaskPluginCollector taskPluginCollector) {
+	// TODO
+	public static void transportOneRecord(RecordSender recordSender, ResultSet rs, ResultSetMetaData metaData,
+			int columnNumber, String mandatoryEncoding, TaskPluginCollector taskPluginCollector) {
 		Record record = recordSender.createRecord();
 
 		try {
@@ -38,11 +36,11 @@ public class ResultSetReadProxy {
 				case Types.NVARCHAR:
 				case Types.LONGNVARCHAR:
 					String rawData;
-					if(StringUtils.isBlank(mandatoryEncoding)){
+					if (StringUtils.isBlank(mandatoryEncoding)) {
 						rawData = rs.getString(i);
-					}else{
-						rawData = new String((rs.getBytes(i) == null ? EMPTY_CHAR_ARRAY : 
-							rs.getBytes(i)), mandatoryEncoding);
+					} else {
+						rawData = new String((rs.getBytes(i) == null ? EMPTY_CHAR_ARRAY : rs.getBytes(i)),
+								mandatoryEncoding);
 					}
 					record.addColumn(new StringColumn(rawData));
 					break;
@@ -103,7 +101,7 @@ public class ResultSetReadProxy {
 
 				case Types.NULL:
 					String stringData = null;
-					if(rs.getObject(i) != null) {
+					if (rs.getObject(i) != null) {
 						stringData = rs.getObject(i).toString();
 					}
 					record.addColumn(new StringColumn(stringData));
@@ -111,23 +109,17 @@ public class ResultSetReadProxy {
 
 				// TODO 添加BASIC_MESSAGE
 				default:
-					throw DataXException
-							.asDataXException(
-									DBUtilErrorCode.UNSUPPORTED_TYPE,
-									String.format(
-											"您的配置文件中的列配置信息有误. 因为DataX 不支持数据库读取这种字段类型. 字段名:[%s], 字段名称:[%s], 字段Java类型:[%s]. 请尝试使用数据库函数将其转换datax支持的类型 或者不同步该字段 .",
-											metaData.getColumnName(i),
-											metaData.getColumnType(i),
-											metaData.getColumnClassName(i)));
+					throw DataXException.asDataXException(DBUtilErrorCode.UNSUPPORTED_TYPE, String.format(
+							"您的配置文件中的列配置信息有误. 因为DataX 不支持数据库读取这种字段类型. 字段名:[%s], 字段名称:[%s], 字段Java类型:[%s]. 请尝试使用数据库函数将其转换datax支持的类型 或者不同步该字段 .",
+							metaData.getColumnName(i), metaData.getColumnType(i), metaData.getColumnClassName(i)));
 				}
 			}
 		} catch (Exception e) {
 			if (IS_DEBUG) {
-				LOG.debug("read data " + record.toString()
-						+ " occur exception:", e);
+				LOG.debug("read data " + record.toString() + " occur exception:", e);
 			}
 
-			//TODO 这里识别为脏数据靠谱吗？
+			// TODO 这里识别为脏数据靠谱吗？
 			taskPluginCollector.collectDirtyRecord(record, e);
 			if (e instanceof DataXException) {
 				throw (DataXException) e;

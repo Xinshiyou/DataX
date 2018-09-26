@@ -9,14 +9,11 @@ import com.alibaba.datax.dataxservice.face.domain.enums.State;
 import org.apache.commons.lang.Validate;
 
 public abstract class AbstractRunner {
+	
     private AbstractTaskPlugin plugin;
-
     private Configuration jobConf;
-
     private Communication runnerCommunication;
-
     private int taskGroupId;
-
     private int taskId;
 
     public AbstractRunner(AbstractTaskPlugin taskPlugin) {

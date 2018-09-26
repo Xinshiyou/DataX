@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 public abstract class AbstractContainerCommunicator {
+	
     private Configuration configuration;
     private AbstractCollector collector;
     private AbstractReporter reporter;

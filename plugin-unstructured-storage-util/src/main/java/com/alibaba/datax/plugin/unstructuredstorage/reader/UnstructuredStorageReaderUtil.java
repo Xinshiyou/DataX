@@ -88,6 +88,7 @@ public class UnstructuredStorageReaderUtil {
 	public static void readFromStream(InputStream inputStream, String context,
 									  Configuration readerSliceConfig, RecordSender recordSender,
 									  TaskPluginCollector taskPluginCollector) {
+		
 		String compress = readerSliceConfig.getString(Key.COMPRESS, null);
 		if (StringUtils.isBlank(compress)) {
 			compress = null;
@@ -116,6 +117,7 @@ public class UnstructuredStorageReaderUtil {
 
 		// compress logic
 		try {
+			
 			if (null == compress) {
 				reader = new BufferedReader(new InputStreamReader(inputStream,
 						encoding), bufferSize);

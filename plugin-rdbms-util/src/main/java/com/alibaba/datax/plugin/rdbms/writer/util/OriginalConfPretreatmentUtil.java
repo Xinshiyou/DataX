@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public final class OriginalConfPretreatmentUtil {
+	
     private static final Logger LOG = LoggerFactory
             .getLogger(OriginalConfPretreatmentUtil.class);
 
@@ -24,7 +25,8 @@ public final class OriginalConfPretreatmentUtil {
 //    }
 
     public static void doPretreatment(Configuration originalConfig, DataBaseType dataBaseType) {
-        // 检查 username/password 配置（必填）
+       
+    	// 检查 username/password 配置（必填）
         originalConfig.getNecessaryValue(Key.USERNAME, DBUtilErrorCode.REQUIRED_VALUE);
         originalConfig.getNecessaryValue(Key.PASSWORD, DBUtilErrorCode.REQUIRED_VALUE);
 
@@ -168,6 +170,7 @@ public final class OriginalConfPretreatmentUtil {
     }
 
     public static boolean isOB10(String jdbcUrl) {
+    	
         //ob10的处理
         if (jdbcUrl.startsWith(com.alibaba.datax.plugin.rdbms.writer.Constant.OB10_SPLIT_STRING)) {
             String[] ss = jdbcUrl.split(com.alibaba.datax.plugin.rdbms.writer.Constant.OB10_SPLIT_STRING_PATTERN);
