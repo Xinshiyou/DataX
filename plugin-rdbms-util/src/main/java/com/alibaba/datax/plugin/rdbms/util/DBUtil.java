@@ -423,7 +423,7 @@ public final class DBUtil {
     public static ResultSet query(Connection conn, String sql, int fetchSize, int queryTimeout)
             throws SQLException {
         // make sure autocommit is off
-        conn.setAutoCommit(false);
+        conn.setAutoCommit(true);
         Statement stmt = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY,
                 ResultSet.CONCUR_READ_ONLY);
         stmt.setFetchSize(fetchSize);

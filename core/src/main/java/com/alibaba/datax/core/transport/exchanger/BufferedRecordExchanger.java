@@ -20,23 +20,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class BufferedRecordExchanger implements RecordSender, RecordReceiver {
 
 	private final Channel channel;
-
 	private final Configuration configuration;
-
 	private final List<Record> buffer;
-
 	private int bufferSize ;
-
 	protected final int byteCapacity;
-
 	private final AtomicInteger memoryBytes = new AtomicInteger(0);
-
 	private int bufferIndex = 0;
-
 	private static Class<? extends Record> RECORD_CLASS;
-
 	private volatile boolean shutdown = false;
-
 	private final TaskPluginCollector pluginCollector;
 
 	@SuppressWarnings("unchecked")
